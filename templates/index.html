@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Psychiatric re-admission risk prediction</title>
+  </head>
+
+<body>
+    <div class="container">
+      <h1>psy-notes-nlp app</h1>
+      <form role="form" method='POST' action='/'>
+        <div class="form-group">
+          <input type="text" name="word" placeholder="Enter word" style="max-width: 600px;" autofocus required>
+        </div>
+        <button type="submit">Predict!</button>
+      </form>
+      <br>
+      {% for error in errors %}
+        <h4>{{ error }}</h4>
+      {% endfor %}
+    </div>
+    <div>
+        {% if letters %}
+            <h2>Probability of re-admission</h2>
+            <br>
+            <div id="results">
+                <ol>
+                {% for letter in letters %}
+                    <li>{{ letter }}</li>
+                {% endfor %}
+              </table>
+            </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>
